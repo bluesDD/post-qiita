@@ -30,3 +30,9 @@ def test_get_only_md_files_current_directory():
 
 def test_cat_file():
     assert cat_file(current_directory + "/tests/" + test_md_file) == [test_text_in_mdfile]
+
+def test_create_file(tmpdir):
+    i = tmpdir.mkdir("tmp").join("test.txt")
+    i.write("This is content")
+    assert i.read() == "This is content"
+    assert len(tmpdir.listdir()) == 1
