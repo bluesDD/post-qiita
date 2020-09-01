@@ -14,7 +14,7 @@ def open_file(file):
 
 class TestCase:
     def test_increment(self):
-        assert increment(1) == 2, "足し算が違ってる"
+        assert increment(1) == 2
 
     def test_increment_exception(self):
         with pytest.raises(ValueError) as error_info:
