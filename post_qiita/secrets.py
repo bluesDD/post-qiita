@@ -1,11 +1,3 @@
-from dotenv import load_dotenv
-from os.path import join, dirname
-import os
+import get_dotenv
 
-load_dotenv(verbose=True)
-
-dotenv_file = ".env"
-dotenv_path = join(dirname(__file__), dotenv_file)
-load_dotenv(dotenv_path)
-
-TOKEN = os.environ.get("QIITA_ACCESS_TOKEN")
+QIITA_TOKEN = get_dotenv.qiita_token
