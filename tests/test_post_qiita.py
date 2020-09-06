@@ -1,5 +1,6 @@
 from post_qiita import __version__
 import os
+import pytest
 from post_qiita.get_posts import get_posts, get_md_filenames, cat_file
 
 # このテストファイルのディレクトリ
@@ -31,7 +32,8 @@ def test_get_only_md_files_current_directory():
 def test_cat_file():
     assert cat_file(current_directory + "/tests/" + test_md_file) == [test_text_in_mdfile]
 
-def test_create_file(tmpdir):
+@pytest.fixture(scope="session")
+def make_tmp_md_file(tmpdir):
     i = tmpdir.mkdir("tmp").join("test.txt")
     i.write("This is content")
     assert i.read() == "This is content"
