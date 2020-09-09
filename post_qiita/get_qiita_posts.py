@@ -20,7 +20,7 @@ class QiitaApiClient:
         if self.headers:
             req.headers = self.headers
         with urllib.request.urlopen(req) as res:
-          body = res.read()
+          body = json.load(res)
           return print(body)
 
 if __name__ == "__main__":
