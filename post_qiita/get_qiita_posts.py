@@ -10,13 +10,15 @@ class QiitaApiClient:
     HttpClient
     """
 
-    def __init__(self, base_url, headers):
+    def __init__(self, base_url, headers=None):
         self.base_url = base_url
         self.headers = headers
 
-    def get_requests(self, path, params=None):
+    def get_requests(self, path):
         url = self.base_url + path
         req = urllib.request.Request(url)
+        if self.headers:
+            req.headers = self.headers
         with urllib.request.urlopen(req) as res:
           body = res.read()
           return print(body)
@@ -26,6 +28,7 @@ if __name__ == "__main__":
     qc = QiitaApiClient(base_url, headers)
     qc.get_requests("authenticated_user/items")
 
+# 
 # a = requests.get("https://qiita.com/api/v2/authenticated_user/items", headers=headers)
 # 
 # posts = json.loads(a.text)
