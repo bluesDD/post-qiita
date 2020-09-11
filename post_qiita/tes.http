@@ -1,0 +1,2 @@
+GET https://qiita.com/api/v2/authenticated_user/items
+Authorization: Bearer a0746854849f431190d677de0c6f7622d1367c06
