@@ -22,6 +22,23 @@ class Post:
     page_views_count: Optional[int] = None
 
 
+@dataclass
+class User:
+    description: Optional[str] = None
+    facebook_id: Optional[str] = None
+    followees_count: int
+    followers_count: int
+    github_login_name: Optional[str] = None
+    id: str
+    items_count: int
+    linkedin_id: Optional[str] = None
+    location: Optional[str] = None
+    name: Optional[str] = None
+    organization: Optional[str] = None
+    permanent_id: int
+    profile_image_url: str
+    team_only: bool
+    twitter_screen_name: Optional[str] = None
+    website_url: Optional[str] = None
 
-    
-    
+
