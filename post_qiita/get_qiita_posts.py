@@ -19,10 +19,21 @@ class QiitaApiClient:
         req = urllib.request.Request(url)
         if self.headers:
             req.headers = self.headers
-        with urllib.request.urlopen(req) as res:
-          body = json.load(res)
-          return body
-    
+        try:
+            with urllib.request.urlopen(req) as res:
+                body = json.load(res)
+                return body
+            except urllib.HTTPError as err:
+                raise err
+
+
+class QiitaGetInfro:
+    """
+    Get info from 
+    """
+
+    def __init__(self, body):
+
 
 if __name__ == "__main__":
     headers = {"Authorization": f"Bearer {QIITA_TOKEN}"}
