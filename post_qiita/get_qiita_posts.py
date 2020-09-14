@@ -2,6 +2,7 @@
 import json
 from get_secrets import QIITA_TOKEN
 import urllib.request
+from model import User, Post
 
 base_url = "https://qiita.com/api/v2/"
 
@@ -23,11 +24,11 @@ class QiitaApiClient:
             with urllib.request.urlopen(req) as res:
                 body = json.load(res)
                 return body
-            except urllib.HTTPError as err:
-                raise err
+        except urllib.HTTPError as err:
+            raise err
 
 
-class QiitaGetInfro:
+class QiitaGetInfo:
     """
     Get info from body
     """
@@ -36,19 +37,15 @@ class QiitaGetInfro:
         self.body = body
     
     def get_updated_date(self):
-        updated_at_list = []
-        for item in self.body:
-            updated_at_list.append(item["updated_at"])
+        updated_at_list = [item["updated_at"] for item in self.body]
         return updated_at_list
-
 
 if __name__ == "__main__":
     headers = {"Authorization": f"Bearer {QIITA_TOKEN}"}
     qc = QiitaApiClient(base_url, headers)
     body = qc.get_requests("authenticated_user/items")
-    for i in body:
-        print(i["updated_at"])
-
+    body_info = QiitaGetInfo(body)
+    print(body_info.get_updated_date())
 # 
 # a = requests.get("https://qiita.com/api/v2/authenticated_user/items", headers=headers)
 # 
