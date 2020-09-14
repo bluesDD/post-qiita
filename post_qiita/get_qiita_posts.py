@@ -29,10 +29,17 @@ class QiitaApiClient:
 
 class QiitaGetInfro:
     """
-    Get info from 
+    Get info from body
     """
 
     def __init__(self, body):
+        self.body = body
+    
+    def get_updated_date(self):
+        updated_at_list = []
+        for item in self.body:
+            updated_at_list.append(item["updated_at"])
+        return updated_at_list
 
 
 if __name__ == "__main__":
