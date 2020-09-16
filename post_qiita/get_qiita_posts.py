@@ -40,6 +40,10 @@ class QiitaGetInfo:
         updated_at_list = [item["updated_at"] for item in self.body]
         return updated_at_list
 
+    def get_tags(self):
+        return [item["tag"] for item in self.body]
+
+
 if __name__ == "__main__":
     headers = {"Authorization": f"Bearer {QIITA_TOKEN}"}
     qc = QiitaApiClient(base_url, headers)
