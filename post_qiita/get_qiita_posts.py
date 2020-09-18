@@ -47,6 +47,10 @@ class QiitaGetInfo:
         return [item["body"] for item in self.body]
 
 
+    def get_title(self):
+        return [item["title"] for item in self.body]
+
+
 if __name__ == "__main__":
     headers = {"Authorization": f"Bearer {QIITA_TOKEN}"}
     qc = QiitaApiClient(base_url, headers)
