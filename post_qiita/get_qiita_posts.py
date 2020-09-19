@@ -46,7 +46,6 @@ class QiitaGetInfo:
     def get_body(self):
         return [item["body"] for item in self.body]
 
-
     def get_title(self):
         return [item["title"] for item in self.body]
 
