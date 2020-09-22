@@ -55,6 +55,9 @@ class QiitaGetInfo:
     def get_likes_count(self):
         return [item["likes_count"] for item in self.body]
 
+    def get_url(self):
+        return [item["url"] for item in self.body]
+
 
 if __name__ == "__main__":
     headers = {"Authorization": f"Bearer {QIITA_TOKEN}"}
