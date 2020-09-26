@@ -65,9 +65,9 @@ if __name__ == "__main__":
     body = qc.get_requests("authenticated_user/items")
     body_info = QiitaGetInfo(body)
     print(body_info.get_updated_date())
-# 
+
 # a = requests.get("https://qiita.com/api/v2/authenticated_user/items", headers=headers)
-# 
+
 # posts = json.loads(a.text)
 # for post in posts:
   # print(post["updated_at"], post["title"])
