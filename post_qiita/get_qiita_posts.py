@@ -58,6 +58,9 @@ class QiitaGetInfo:
     def get_url(self):
         return [item["url"] for item in self.body]
 
+    def get_user(self):
+        return [item["user"] for item in self.body]
+
 
 if __name__ == "__main__":
     headers = {"Authorization": f"Bearer {QIITA_TOKEN}"}
